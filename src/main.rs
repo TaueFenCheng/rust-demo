@@ -3,17 +3,25 @@ use std::{
     fs::File,
     io::{self, ErrorKind, Read},
 };
+use rust_demo::Summary;
+use rust_demo::Class;
+
 enum Stu {
     Name(String),
     Id(f64),
     Class(String),
 }
 
-
-
 // trait
 
-
+fn test_trait_fn(){
+    let cls = Class {
+        name:String::from("zhangsan"),
+        stu_number: 66
+    };
+    println!("trait =================");
+    println!("{}", cls.output_detail());
+}
 
 
 // 传播错误
@@ -157,4 +165,6 @@ fn main() {
         Ok(s) => println!("{}", s),
         Err(e) => panic!("{:?}", e),
     }
+
+    test_trait_fn();
 }
