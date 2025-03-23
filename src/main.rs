@@ -1,10 +1,10 @@
+use rust_demo::Class;
+use rust_demo::Summary;
 use std::{
     collections::HashMap,
     fs::File,
     io::{self, ErrorKind, Read},
 };
-use rust_demo::Summary;
-use rust_demo::Class;
 
 enum Stu {
     Name(String),
@@ -12,17 +12,24 @@ enum Stu {
     Class(String),
 }
 
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+// 生命周期
+fn largest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() { x } else { y }
+}
 // trait
 
-fn test_trait_fn(){
+fn test_trait_fn() {
     let cls = Class {
-        name:String::from("zhangsan"),
-        stu_number: 66
+        name: String::from("zhangsan"),
+        stu_number: 66,
     };
     println!("trait =================");
     println!("{}", cls.output_detail());
 }
-
 
 // 传播错误
 // ? 运算符只能用于返回Result的函数
@@ -85,6 +92,8 @@ fn open_file_not_create() {
             panic!("not found file,{:?}", error)
         }
     });
+
+    println!("{:?}",fs);
 }
 
 fn main() {
@@ -117,11 +126,13 @@ fn main() {
         print!("{}\n", i)
     }
 
-    let v5 = vec![
-        Stu::Name(String::from("tang")),
-        Stu::Id(4.44),
-        Stu::Class(String::from("2-1")),
-    ];
+    // let v5 = vec![
+    //     Stu::Name(String::from("tang")),
+    //     Stu::Id(4.44),
+    //     Stu::Class(String::from("2-1")),
+    // ];
+
+    // println!("{:#?}",v5);
 
     //String
 

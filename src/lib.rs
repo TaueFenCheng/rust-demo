@@ -24,37 +24,30 @@ impl Class {
 
 impl Summary for Class {
     fn output_detail(&self) -> &String {
-        println!("{},{}",self.name,self.stu_number);
+        println!("{},{}", self.name, self.stu_number);
         // self.name.clone()
         &self.name
     }
     fn output_detail2(&self) -> String {
-        println!("{},{}",self.name,self.stu_number);
+        println!("{},{}", self.name, self.stu_number);
         self.name.clone()
         // self.name
     }
 }
 
-
 // trait 作为参赛
 
-pub fn notify(item: impl Summary){
+pub fn notify(item: impl Summary) {}
 
-}
-
-pub fn notify2<T: Summary>(item: T){
-
-}
+pub fn notify2<T: Summary>(item: T) {}
 
 // trait bound
 
-pub fn notify3<T: Summary + Display>(item: T){
-
-}
+pub fn notify3<T: Summary + Display>(item: T) {}
 
 // where 语法糖
-pub fn notify4<T>(item:T)
-    where T: Summary + Display
+pub fn notify4<T>(item: T)
+where
+    T: Summary + Display,
 {
-
 }
