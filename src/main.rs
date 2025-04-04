@@ -117,6 +117,11 @@ fn main() {
 
     let mut v4 = vec![3, 4, 5];
 
+    // 闭包函数
+    let cluse = |x:u32|{
+        x+1
+    };
+
     for i in &mut v4 {
         // print!("{}\n",i)
         *i += 50 // 解引用
