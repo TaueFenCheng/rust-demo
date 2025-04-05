@@ -1,5 +1,6 @@
 use rust_demo::Class;
 use rust_demo::Summary;
+use std::vec;
 use std::{
     collections::HashMap,
     fs::File,
@@ -10,6 +11,29 @@ enum Stu {
     Name(String),
     Id(f64),
     Class(String),
+}
+
+// 闭包
+
+
+// struct Clouse<T> {
+
+// }
+
+// impl Clouse {
+//     fn new(){
+
+//     }
+// }
+
+// iter 迭代器
+
+fn ifn(){
+    let a = vec![1,2,3,4];
+    let a_iter = a.iter();
+    for item in a_iter  {
+        println!("{}",item)
+    }
 }
 
 fn add(a: i32, b: i32) -> i32 {
@@ -127,6 +151,7 @@ fn main() {
         *i += 50 // 解引用
     }
 
+    ifn();
     for i in &v4 {
         print!("{}\n", i)
     }
