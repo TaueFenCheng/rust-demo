@@ -15,6 +15,37 @@ enum Stu {
 
 // 闭包
 
+fn clouser() -> impl Fn(i32) -> i32 {
+    |x| x + 1
+}
+
+fn make_adder(x: i32) -> impl Fn(i32) -> i32 {
+    move |y| x + y
+}
+
+// 定义一个函数，接受一个闭包作为参数，将闭包应用到给定的数字上
+fn apply_operation<F>(num: i32, operation: F) -> i32
+where
+    F: Fn(i32) -> i32,
+{
+    operation(num)
+}
+
+// 主函数
+// fn main() {
+//     // 定义一个数字
+//     let num = 5;
+
+//     // 定义一个闭包，用于对数字进行平方运算
+//     let square = |x| x * x;
+
+//     // 调用函数，并传入闭包作为参数，对数字进行平方运算
+//     let result = apply_operation(num, square);
+
+//     // 输出结果
+//     println!("Square of {} is {}", num, result);
+// }
+
 
 // struct Clouse<T> {
 
@@ -39,6 +70,7 @@ fn ifn(){
 fn add(a: i32, b: i32) -> i32 {
     a + b
 }
+
 
 // 生命周期
 fn largest<'a>(x: &'a str, y: &'a str) -> &'a str {
@@ -134,6 +166,10 @@ fn main() {
 
     println!("Hello, world!");
 
+    let vec = vec![1, 2, 3];
+    let squared_vec: Vec<i32> = vec.iter().map(|x| x * x).collect();
+    println!("{:?}", squared_vec); // 输出: [1, 4, 9]
+
     match v.get(3) {
         Some(var) => print!("{}", var),
         None => println!("none"),
@@ -208,4 +244,11 @@ fn main() {
     }
 
     test_trait_fn();
+
+    fn call_fn<F>(f: F) where F: Fn() {
+        f();
+    }
+    
+    // let add = |a, b| a + b;
+    call_fn(move || println!("Hello from a closure!"));
 }
