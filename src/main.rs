@@ -248,7 +248,11 @@ fn main() {
     fn call_fn<F>(f: F) where F: Fn() {
         f();
     }
+
+    let yu7 = "taue+++++++++";
+    let outYu7 = || println!("{}",yu7);
+    outYu7();
     
     // let add = |a, b| a + b;
-    call_fn(move || println!("Hello from a closure!"));
+    // call_fn(move || println!("Hello from a closure!"));
 }
